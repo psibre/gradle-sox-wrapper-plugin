@@ -5,6 +5,6 @@ import org.gradle.api.*
 class SoxWrapperPlugin implements Plugin<Project> {
 
     void apply(Project project) {
-
+        project.extensions.create('sox', SoxExtension)
     }
 }

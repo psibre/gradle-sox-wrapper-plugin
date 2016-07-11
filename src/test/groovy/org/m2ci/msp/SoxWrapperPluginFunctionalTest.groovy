@@ -40,4 +40,17 @@ class SoxWrapperPluginFunctionalTest {
         def result = gradle.withProjectDir(buildScript.parentFile).build()
         assert result.task(':test').outcome == SUCCESS
     }
+
+    @Test
+    void hasSoxExtension() {
+        def buildScript = initBuildScript()
+        buildScript << [
+                'task test << {',
+                '  assert sox',
+                '}',
+                'defaultTasks "test"'
+        ].join('\n')
+        def result = gradle.withProjectDir(buildScript.parentFile).build()
+        assert result.task(':test').outcome == SUCCESS
+    }
 }
