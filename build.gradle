@@ -1,2 +1,15 @@
+plugins {
+    id 'java-gradle-plugin'
+}
+
 group 'org.m2ci.msp'
 version '0.1-SNAPSHOT'
+
+gradlePlugin {
+    plugins {
+        soxWrapperPlugin {
+            id = 'org.m2ci.msp.sox-wrapper'
+            implementationClass = 'org.m2ci.msp.SoxWrapperPlugin'
+        }
+    }
+}
